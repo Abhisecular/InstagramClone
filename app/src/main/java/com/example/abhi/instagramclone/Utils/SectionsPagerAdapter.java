@@ -1,4 +1,4 @@
-package com.example.abhi.instagramclone.Home;
+package com.example.abhi.instagramclone.Utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
