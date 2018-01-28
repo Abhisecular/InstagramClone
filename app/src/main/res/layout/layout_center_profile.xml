@@ -38,6 +38,7 @@
                 android:layout_marginStart="25dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_photo"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_centerVertical="true"/>
@@ -71,7 +72,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Abhi"
+                android:text="This is description"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:id="@+id/description"
@@ -80,7 +81,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Abhi"
+                android:text="https://github.com/abhisecular/"
                 android:textSize="15sp"
                 android:textColor="@color/green"
                 android:id="@+id/website"
@@ -93,6 +94,7 @@
             android:id="@+id/relLayout3">
             
             <GridView
+                android:id="@+id/gridView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:numColumns="3"

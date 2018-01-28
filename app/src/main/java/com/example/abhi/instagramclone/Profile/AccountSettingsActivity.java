@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,7 +14,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.abhi.instagramclone.R;
+import com.example.abhi.instagramclone.Utils.BottomNavigationViewHelper;
 import com.example.abhi.instagramclone.Utils.SectionsStatePagerAdapter;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
 
@@ -21,6 +25,7 @@ import java.util.ArrayList;
  */
 
 public class AccountSettingsActivity extends AppCompatActivity {
+    private static final int NUM=4;
 
     private SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
@@ -33,6 +38,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mRelativeLayout = (RelativeLayout)findViewById(R.id.relLayout1);
         setupSettingsList();
         setupFragments();
+        setupBottomNavigationView();
         ImageView imageView = (ImageView)findViewById(R.id.backArrow);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +49,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
     }
 
     private void setupFragments(){
-        pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager()); 
+        pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragment(new EditProfileFragment(), getString(R.string.edit_profile_fragment));
         pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));
 
@@ -69,5 +75,15 @@ public class AccountSettingsActivity extends AppCompatActivity {
             }
         });
 
+
+
+    }
+    public void setupBottomNavigationView(){
+        BottomNavigationViewEx bottomNavigationViewEx= (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(AccountSettingsActivity.this, bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem=menu.getItem(NUM);
+        menuItem.setChecked(true);
     }
 }

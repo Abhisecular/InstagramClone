@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import com.example.abhi.instagramclone.R;
 import com.example.abhi.instagramclone.Utils.BottomNavigationViewHelper;
 import com.example.abhi.instagramclone.Utils.SectionsPagerAdapter;
+import com.example.abhi.instagramclone.Utils.UniversalImageLoader;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class HomeActivity extends AppCompatActivity {
     private static final int NUM=0;
@@ -19,6 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
     }
@@ -43,5 +46,10 @@ public class HomeActivity extends AppCompatActivity {
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem=menu.getItem(NUM);
         menuItem.setChecked(true);
+    }
+
+    public void initImageLoader(){
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(HomeActivity.this);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 }
